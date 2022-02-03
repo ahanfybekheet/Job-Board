@@ -1,0 +1,54 @@
+{% extends 'base/base.html' %}
+{% load bootstrap4 %}
+
+
+
+<body>
+    {% block body %}
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>Edit Your Profile</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg">
+                <div class="col-lg">
+                    <div class="job_sumary">
+                        <div class="job_content">
+                            <form enctype="multipart/form-data" method="POST">
+                                {% csrf_token %}
+                                {% bootstrap_form userform layout='horizontal'%}
+                                {% bootstrap_form profileform layout='horizontal'%}
+                        </div>
+                        <div class="submit_btn">
+                            <button class="boxed-btn3 w-100" type="submit">Edit Profile</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock body %}
+</body>
+
+</html>

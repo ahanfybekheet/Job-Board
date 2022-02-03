@@ -1,0 +1,43 @@
+{% extends 'base/base.html' %}
+{% load bootstrap4 %}
+{% block body %}
+<div class="bradcam_area bradcam_bg_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text">
+                    <h3>Sign up</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/ bradcam_area  -->
+
+<!-- job_listing_area_start  -->
+<div class="job_listing_area plus_padding">
+    <div class="container">
+            <div class="col-lg-9">
+                <form enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    {% bootstrap_form sign_form%}
+                    <div class="col-md-12">
+                        <div class="submit_btn">
+                            <button class="boxed-btn3 w-100" type="submit">sign up</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </div>
+</div>
+{% endblock body %}
+
+
+
+
+
+
+
+
+
+

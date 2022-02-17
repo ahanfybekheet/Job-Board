@@ -2,14 +2,11 @@ from tkinter import Widget
 from django import forms
 from .models import Blog, Comment
 
-class KeywordSearchForm(forms.ModelForm):
-    class Meta:
-        model = Blog
-        fields = ['title']
-
-    def __init__(self, *args, **kwargs):
-        super(KeywordSearchForm, self).__init__(*args, **kwargs)
-        self.fields['title'].required = False
+class TitleSearchForm(forms.Form):
+    title = forms.CharField(required=True)
+    # class Meta:
+    #     model = Blog
+    #     fields = ['title']
 
 
 class CommentForm(forms.ModelForm):

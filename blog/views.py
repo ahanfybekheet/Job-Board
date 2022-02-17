@@ -40,7 +40,7 @@ def blog_list(request):
 class BlogList(ListView):
     queryset = Blog.objects.all()
     template_name = 'blog/blogs_cbv.html'
-
+    paginate_by = 1
     def get(self,*args,**kwargs):
         if self.request.GET.get('title'):
             self.queryset = Blog.objects.filter(title__icontains=self.request.GET.get('title'))
@@ -57,7 +57,6 @@ class BlogList(ListView):
         to_day = DT.date.today() 
         week_ago = to_day - DT.timedelta(days=7) 
         context['recent_post'] = Blog.objects.filter(pub_at__gte=week_ago)
-        context['blog_list'] = self.queryset
         return context
 
 
@@ -91,6 +90,42 @@ def blog_detail(request,slug):
         context["next_blog"] = next_blog
     return render(request,'blog/blog_detail.html',context)
 
+#------------------------------ using CBV ----------------------------------------
+class BlogDetail(FormMixin,DetailView):
+    model = Blog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # class BlogDetail(FormMixin,DetailView):
 #     queryset = Blog.objects.all()
@@ -110,4 +145,3 @@ def blog_detail(request,slug):
 
 #         return context
     
-

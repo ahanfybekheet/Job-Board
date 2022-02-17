@@ -47,19 +47,25 @@
                                     <div class="col-lg-12">
                                         <div class="pagination_wrap">
                                             <ul>
-                                                {% if blogs.has_other_pages %}
-                                                {% if blogs.has_previos_pages %} 
-                                                <li><a href="?page={{blogs.previous_page_number}}"> <i class="ti-angle-left"></i> </a></li>
-                                                {% endif %}
-                                                {% for i in ''|center:'3'|make_list %}  
-                                                {% if forloop.counter0|add:blogs.number < blogs.paginator.num_pages|add:1 %}
-                                                <li><a href="?page={{forloop.counter0|add:blogs.number}}"><span>{{forloop.counter0|add:blogs.number}}</span></a></li>
-                                                {% endif %}
-                                                {% endfor %}
-                                                {% if blogs.has_next %}
-                                                <li><a href="?page={{blogs.next_page_number}}"> <i class="ti-angle-right"></i></a></li>
-                                                {% endif %}
-                                                {% endif %}
+                                                {% if blogs.has_other_pages %}                        
+
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="pagination_wrap">
+                                                            <ul>
+                {% if blogs.has_previous %}
+                <li><a href="?page={{blogs.previous_page_number}}"> <i class="ti-angle-left"></i> </a></li>
+                {% endif %}
+                {% for i in blogs.paginator.page_range  %}                                    
+                <li><a href="?page={{i}}"><span>{{i}}</span></a></li>
+                {% endfor %}
+                {% if blogs.has_next %}
+                <li><a href="?page={{blogs.next_page_number}}"> <i class="ti-angle-right"></i>
+                {% endif %} </a></li>
+            </ul>
+        </div>
+    </div>
+{% endif %}
                                             </ul>
                                         </div>
                                     </div>                            

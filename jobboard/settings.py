@@ -143,3 +143,8 @@ EMAIL_HOST_PASSWORD = 'nfqstcbxijqmarav'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
+
+
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
+

@@ -1,0 +1,61 @@
+{% extends 'base/base.html' %}
+{% load bootstrap4 %}
+
+<!doctype html>
+
+
+<body>
+    {% block body %}
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- header-start -->
+    
+    <!-- bradcam_area  -->
+    <div class="bradcam_area bradcam_bg_1">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="bradcam_text">
+                        <h3>Profile</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ bradcam_area  -->
+
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg">
+                <div class="col-lg">
+                    <div class="job_sumary">
+                        <div class="summery_header">
+                            <h3>Profile Summery</h3>
+                        </div>
+                        <div class="job_content">
+                            <ul>
+                                <li>username: <span>{{object}}</span></li>
+                                <li>Email: <span>{{object.user.email}} </span></li>
+                                <li>Name: <span>{{object.user.first_name}} </span></li>
+                                <li>job title: <span> {{object.job_title}}</span></li>
+                                <li>age: <span> {{object.age}}</span></li>
+                                <li>cv: <span>{{object.cv}}</span></li>
+                                <li>joined at: <span> {{object.joined_at|date:"d M Y"}}</span></li>
+                                <li>location: <span>{{object.city}} ,Egypt</span></li>
+                            </ul>
+                        </div>
+                        <div class="submit_btn">
+                            <a href="{% url 'edit-profile' %}"</a><button class="boxed-btn3 w-100" href="{% url 'edit-profile' %}">Edit Profile</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock body %}

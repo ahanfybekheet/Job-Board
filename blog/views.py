@@ -115,6 +115,7 @@ class BlogDetail(FormMixin,DetailView):
         form = self.get_form()
         if form.is_valid():
             return self.form_valid(form)
+        return super().post(self,*args, **kwargs)
 
     def form_valid(self,form):
         myform = form.save(commit=False)

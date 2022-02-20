@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth.models import User
 from .models import *
 
-class signup(UserCreationForm,forms.Form):
+class signup(UserCreationForm):
     class meta:
         model = User
         fields = '__all__'

@@ -1,6 +1,5 @@
 from django.urls import path ,include
-from . import views
-
+from . import views,api
 
 
 
@@ -15,5 +14,9 @@ urlpatterns = [
     path('cbv/profile/', views.Profile.as_view(),name='Profile'),
     path('cbv/profile/edit',views.EditProfile.as_view(),name='EditProfile'),
 
+
+    ## API
+    path('api/cbv/',api.ProfileList.as_view()),
+    path('api/cbv/<pk:pk>',api.ProfileDetail.as_view()),
 
 ]

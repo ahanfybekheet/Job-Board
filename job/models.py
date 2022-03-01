@@ -1,6 +1,6 @@
 from django.db import models
-from slugify import slugify
 from django.contrib.auth.models import User
+from slugify import slugify
 def image_upload(instance,filename):
     (image_names,extension) = (filename.split('.'))
     return f'jobs/{instance.id}.{extension}'
